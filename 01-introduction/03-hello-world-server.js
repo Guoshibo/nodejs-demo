@@ -2,9 +2,8 @@
 
 const http = require('http');
 
-http.createServer((req, res) => {
-   console.log(req.headers);
-  req.pipe(process.stdout);
-     res.end('ok');
-}).listen(8080);
-
+const serve = http.createServer();
+serve.on('request',(req,res)=>{
+  res.end('hello');
+})
+serve.listen(8080);
